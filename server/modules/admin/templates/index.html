@@ -1,0 +1,49 @@
+<h1>Здравствуйте, {{full_name}}</h1>
+
+<h2>INFO</h2>
+<ul>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" href="get_me">
+            Информация обо мне
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" href="get_users">
+            Список пользователей
+        </a>
+    </li>
+</ul>
+
+<h2>Admin panel</h2>
+<ul>
+    <li>
+        <form target="_blank" method="POST" action="user_wallets">
+            <input type="email" required name="user_email" placeholder="user email">
+            <input type="submit" value="Балансы и платежи пользователя">
+        </form>
+    </li>
+    <li>
+        <form target="_blank" method="POST" action="delete_user">
+            <input type="email" required name="user_email" placeholder="user email">
+            <input type="submit" value="Удалить пользователя">
+        </form>
+    </li>
+    <li>
+        <form target="_blank" method="POST" action="create_user">
+            <input type="email" name="email" required placeholder="user email">
+            <input type="text" name="full_name" required placeholder="user full name">
+            <input type="password" name="password" required placeholder="user password">
+            <input type="submit" value="Создать пользователя">
+        </form>
+    </li>
+    <li>
+        <form target="_blank" method="POST" action="update_user">
+            <input type="text" name="id" required placeholder="user id">
+            <input type="email" name="email" required placeholder="user email">
+            <input type="text" name="full_name" required placeholder="user full name">
+            <input type="password" name="password" required placeholder="user password">
+            <input type="submit" value="Обновить пользователя">
+        </form>
+    </li>
+</ul>
+

@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    db:
+        image: postgres:16
+        hostname: db
+        networks:
+        - dimtech
+        ports:
+        - 5433:5432
+        env_file:
+        - ./.env
+        volumes:
+        - ./database:/var/lib/postgresql/data
+
+    server:
+        volumes:
+        - ./server:/server
+        build: ./server/
+        command: "uvicorn --host 0.0.0.0 --port 8080 asgi:app"
+        networks:
+        - dimtech
+        ports:
+        - 8229:8080
+        hostname: server
+        depends_on:
+        - db
+        env_file:
+        - ./.env
+
+networks:
+    dimtech:
